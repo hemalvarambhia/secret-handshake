@@ -16,7 +16,7 @@ class SecretHandshake
 
   def handshake
     0.upto(number_of_bits)
-      .inject([]) { |to_run, bit_number| to_run + handshake_for(bit_number) }
+      .inject([]) { |actions, bit_number| actions + handshake_for(bit_number) }
   end
 
   def handshake_for bit_number
