@@ -5,6 +5,14 @@ class SecretHandshake
   end
 
   def commands
+    return handshake.reverse if decimal.bit_length == 5
+
+    handshake
+  end
+
+  private
+
+  def handshake
     allowed = { 
       1 => ['wink'],
       2 => ['double blink'],
@@ -12,8 +20,6 @@ class SecretHandshake
       8 => ['jump']
     }
     allowed.default = []
-
-    return [ 'double blink', 'wink' ] if decimal == 19
 
     0.upto(decimal.bit_length)
       .inject([]) { |to_run, n| to_run + allowed[decimal[n] * (2 ** n)]}
