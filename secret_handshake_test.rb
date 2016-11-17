@@ -20,7 +20,6 @@ class SecretHandshakeTest < Minitest::Test
   end
 
   def test_handshake_1000_to_jump
-    skip
     handshake = SecretHandshake.new(8)
     assert_equal ['jump'], handshake.commands
   end
