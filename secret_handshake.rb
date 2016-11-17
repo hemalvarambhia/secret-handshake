@@ -14,6 +14,8 @@ class SecretHandshake
       [ 'close your eyes' ]
     when 8
       [ 'jump' ]
+    else
+      [ 'wink', 'double blink' ]
     end
   end
 end
