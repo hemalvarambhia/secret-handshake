@@ -20,14 +20,14 @@ class SecretHandshake
   end
 
   def handshake_for n
-    allowed = { 
+    handshake = { 
       1 => ['wink'],
       2 => ['double blink'],
       4 => ['close your eyes'],
       8 => ['jump']
     }
-    allowed.default = []
+    handshake.default = []
     
-    allowed[decimal[n] * (2 ** n)]
+    handshake[decimal[n] * (2 ** n)]
   end
 end
