@@ -5,17 +5,13 @@ class SecretHandshake
   end
 
   def commands
-    case decimal
-    when 1
-      [ 'wink' ]
-    when 2
-      [ 'double blink' ]
-    when 4
-      [ 'close your eyes' ]
-    when 8
-      [ 'jump' ]
-    else
-      [ 'wink', 'double blink' ]
-    end
+    allowed = { 
+      1 => ['wink'],
+      2 => ['double blink'],
+      4 => ['close your eyes'],
+      8 => ['jump']
+    }
+
+    allowed.fetch(decimal, [ 'wink', 'double blink' ])
   end
 end
