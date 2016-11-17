@@ -15,7 +15,8 @@ class SecretHandshake
   private
 
   def handshake
-    0.upto(decimal.bit_length)
+    number_of_bits = decimal.bit_length
+    0.upto(number_of_bits)
       .inject([]) { |to_run, n| to_run + handshake_for(n) }
   end
 
