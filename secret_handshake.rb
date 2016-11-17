@@ -20,7 +20,7 @@ class SecretHandshake
       .inject([]) { |to_run, n| to_run + handshake_for(n) }
   end
 
-  def handshake_for n
+  def handshake_for bit_number
     handshake = { 
       1 => ['wink'],
       2 => ['double blink'],
@@ -29,6 +29,6 @@ class SecretHandshake
     }
     handshake.default = []
     
-    handshake[decimal[n] * (2 ** n)]
+    handshake[decimal[bit_number] * (2 ** bit_number)]
   end
 end
