@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'secret_handshake'
 
 class SecretHandshakeTest < Minitest::Test
