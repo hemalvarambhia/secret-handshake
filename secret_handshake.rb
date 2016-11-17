@@ -12,6 +12,8 @@ class SecretHandshake
       8 => ['jump']
     }
 
+    return [ 'double blink', 'wink' ] if decimal == 19
+
     allowed.fetch(decimal, [ 'wink', 'double blink' ])
   end
 end
