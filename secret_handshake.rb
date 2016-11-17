@@ -13,6 +13,11 @@ class SecretHandshake
   private
 
   def handshake
+    0.upto(decimal.bit_length)
+      .inject([]) { |to_run, n| to_run + command_for(n) }
+  end
+
+  def command_for n
     allowed = { 
       1 => ['wink'],
       2 => ['double blink'],
@@ -20,8 +25,7 @@ class SecretHandshake
       8 => ['jump']
     }
     allowed.default = []
-
-    0.upto(decimal.bit_length)
-      .inject([]) { |to_run, n| to_run + allowed[decimal[n] * (2 ** n)]}
+    
+    allowed[decimal[n] * (2 ** n)]
   end
 end
