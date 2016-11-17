@@ -7,7 +7,7 @@ class SecretHandshake
   def commands
     return [] unless decimal.is_a? Fixnum
 
-    return handshake.reverse if decimal.bit_length == 5
+    return handshake.reverse if number_of_bits == 5
 
     handshake
   end
@@ -15,7 +15,6 @@ class SecretHandshake
   private
 
   def handshake
-    number_of_bits = decimal.bit_length
     0.upto(number_of_bits)
       .inject([]) { |to_run, bit_number| to_run + handshake_for(bit_number) }
   end
@@ -30,5 +29,9 @@ class SecretHandshake
     handshake.default = []
     
     handshake[decimal[bit_number] * (2 ** bit_number)]
+  end
+
+  def number_of_bits
+    decimal.bit_length
   end
 end
