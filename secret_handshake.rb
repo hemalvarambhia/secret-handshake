@@ -5,6 +5,8 @@ class SecretHandshake
   end
 
   def commands
+    return [] unless decimal.is_a? Fixnum
+
     return handshake.reverse if decimal.bit_length == 5
 
     handshake

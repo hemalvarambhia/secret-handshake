@@ -41,7 +41,6 @@ class SecretHandshakeTest < Minitest::Test
   end
 
   def test_invalid_handshake
-    skip
     handshake = SecretHandshake.new('piggies')
     assert_equal [], handshake.commands
   end
