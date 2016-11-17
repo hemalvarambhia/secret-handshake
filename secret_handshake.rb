@@ -16,10 +16,10 @@ class SecretHandshake
 
   def handshake
     0.upto(decimal.bit_length)
-      .inject([]) { |to_run, n| to_run + command_for(n) }
+      .inject([]) { |to_run, n| to_run + handshake_for(n) }
   end
 
-  def command_for n
+  def handshake_for n
     allowed = { 
       1 => ['wink'],
       2 => ['double blink'],
